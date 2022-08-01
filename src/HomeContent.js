@@ -1,24 +1,10 @@
 import { useRef } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
-function HomeContent({lightDarkToggle_ref, toggleIcon_ref, lightIcon_ref, darkIcon_ref}) {
+function HomeContent() {
   const ref = useRef(null);
 
   return (
-    <div id="mid">
-        <div className="theme-switch-wrapper">
-          <span id="toggle-icon" ref={toggleIcon_ref}>
-            <span className="toggle-text"></span>
-            <i className="fas fa-sun"></i>
-            <FontAwesomeIcon icon={faSun} className="fas" ref={lightIcon_ref} />
-            <FontAwesomeIcon icon={faMoon} className="fas hide" ref={darkIcon_ref} />
-          </span>
-          <label className="theme-switch">
-            <input type="checkbox" ref={lightDarkToggle_ref}/>
-            <div className="slider round"></div>
-          </label>
-        </div>
+    <div>
         <div id="proj-intro" style={{minHeight: "calc(100vh - 70px)", display: "flex", alignItems: "center", flexFlow: "wrap", paddingTop: "70px"}}>
           <div className="intro_style page-row" style={{width: "100%"}}>
               <div className="div_profile_image"><img src="profile-photo.jpeg" className="img_profile img_style" /></div>

@@ -1,8 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useState, useRef, useEffect } from "react";
 import HomeContent from './HomeContent';
+import ContactContent from './ContactContent';
 import Nav from './Nav';
 import SliderMenu from './SliderMenu';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const menu_ref = useRef(null);
@@ -89,10 +92,24 @@ function App() {
         <SliderMenu toggleMenu={toggleMenu} menu_ref={menu_ref}/>
         <div id="container" ref={container_ref}>
           <Nav toggleMenu={toggleMenu}/>
-          <Routes>
-            <Route path="/" element={<HomeContent lightDarkToggle_ref={lightDarkToggle_ref} toggleIcon_ref={toggleIcon_ref} lightIcon_ref={lightIcon_ref} darkIcon_ref={darkIcon_ref} />} />
-            <Route path="/contact" element={<HomeContent />} />
-          </Routes>
+          <div id="mid">
+              <div className="theme-switch-wrapper">
+                <span id="toggle-icon" ref={toggleIcon_ref}>
+                  <span className="toggle-text"></span>
+                  <i className="fas fa-sun"></i>
+                  <FontAwesomeIcon icon={faSun} className="fas" ref={lightIcon_ref} />
+                  <FontAwesomeIcon icon={faMoon} className="fas hide" ref={darkIcon_ref} />
+                </span>
+                <label className="theme-switch">
+                  <input type="checkbox" ref={lightDarkToggle_ref}/>
+                  <div className="slider round"></div>
+                </label>
+              </div>
+                <Routes>
+                  <Route path="/" element={<HomeContent lightDarkToggle_ref={lightDarkToggle_ref} toggleIcon_ref={toggleIcon_ref} lightIcon_ref={lightIcon_ref} darkIcon_ref={darkIcon_ref} />} />
+                  <Route path="/contact" element={<ContactContent />} />
+                </Routes>
+          </div>
         </div>
       </BrowserRouter>
     </div>
