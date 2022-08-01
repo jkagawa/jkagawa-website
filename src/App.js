@@ -1,41 +1,100 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState, useRef, useEffect } from "react";
 import HomeContent from './HomeContent';
+import Nav from './Nav';
+import SliderMenu from './SliderMenu';
 
 function App() {
+  const menu_ref = useRef(null);
+  const container_ref = useRef(null);
+  const lightDarkToggle_ref = useRef(null);
+  const toggleIcon_ref = useRef(null);
+  const lightIcon_ref = useRef(null);
+  const darkIcon_ref = useRef(null);
+
 
   function toggleMenu() {
-      // document.getElementById("main_dropdown").classList.toggle("show");
-      // document.getElementById("container").classList.toggle("opacity_effect");
+    const menu = menu_ref.current;
+    const container = container_ref.current;
+    menu.classList.toggle("show");
+    container.classList.toggle("opacity_effect");
   }
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div id="main_dropdown" className="dropdown-content">
-            <div className="dropdown-content-head">
-                <div onClick={toggleMenu()} className="closebtn"><img src="static/images/close-icon.png" className="close_icon img_style" /></div>
-            </div>
-            <div><a href="/" className="currentpage_nav">Projects</a></div>
-            <div><a href="/contact">Contact</a></div>
-        </div>
-        <div id="container">
-            <header>
-              <div className="header_container">
-                <div className="logo_style"><img src="static/images/letter-j.png" width="37px" className="img_style" /></div>
-                <a href="/"><div className="nav-button{% if request.endpoint == 'index' %} button-main{% endif %}">Projects</div></a>
-                <a href="/contact"><div className="nav-button{% if request.endpoint == 'contact_page' %} button-main{% endif %}">Contact</div></a>
-              </div>
-              <div className="dropdown_container">
-                <div className="logo_style"><img src="static/images/letter-j.png" width="37px" className="img_style" /></div>
-                <div className="header-title">Home</div>
-                <div className="dropdown">
-                  <button className="dropbtn" onclick="toggleMenu()"><img src="static/images/menu-icon.png" className="menu_icon img_style" /></button>
-                </div>
-              </div>
-            </header>
+  useEffect(() => {
+    const toggleSwitch = lightDarkToggle_ref.current;
+    // const nav = document.getElementById('nav');
+    // const toggleIcon = document.getElementById('toggle-icon');
+    const toggleIcon = toggleIcon_ref.current;
+    // const textBox = document.getElementById('text-box');
 
-            <HomeContent />
+    function toggleLightDarkMode(isLight) {
+      const lightIcon = lightIcon_ref.current;
+      const darkIcon = darkIcon_ref.current;
+      isLight ? darkIcon.style.display = "none" : lightIcon.style.display = "none";
+      isLight ? lightIcon.style.display = "inline-block" : darkIcon.style.display = "inline-block";
+    }
+
+    function switchTheme(event) {
+      if(event.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme','dark');
+        toggleLightDarkMode(false);
+      }
+      else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme','light');
+        toggleLightDarkMode(true);
+      }
+    }
+
+    //Event Listener
+    toggleSwitch.addEventListener('change', switchTheme);
+
+    //Check Local Storage For Theme
+    const currTheme = localStorage.getItem('theme');
+    if(currTheme) {
+      document.documentElement.setAttribute('data-theme', currTheme);
+      if(currTheme==='dark') {
+        toggleSwitch.checked = true;
+        toggleLightDarkMode(false);
+      }
+      else {
+        toggleSwitch.checked = false;
+        toggleLightDarkMode(true);
+      }
+    }
+  }, []);
+
+  window.onscroll = function(event) {
+    var doc_el = document.documentElement;
+    doc_el = (doc_el.clientHeight)? doc_el : document.body;
+    var target_el = document.querySelectorAll('.non-intro-style-dark');
+    var cont = document.querySelector('.header_container');
+    var cont2 = document.querySelector('.dropdown_container');
+
+    //Check if top of element hits bottom of fixed header
+    if (doc_el.scrollTop > (target_el[0].offsetTop-50)) {
+      cont.classList.add("container_style");
+      cont2.classList.add("container_style");
+    }
+    else {
+      cont.classList.remove("container_style");
+      cont2.classList.remove("container_style");
+    }
+  };
+
+  return (
+    <div>
+      <BrowserRouter>
+        <SliderMenu toggleMenu={toggleMenu} menu_ref={menu_ref}/>
+        <div id="container" ref={container_ref}>
+          <Nav toggleMenu={toggleMenu}/>
+          <Routes>
+            <Route path="/" element={<HomeContent lightDarkToggle_ref={lightDarkToggle_ref} toggleIcon_ref={toggleIcon_ref} lightIcon_ref={lightIcon_ref} darkIcon_ref={darkIcon_ref} />} />
+            <Route path="/contact" element={<HomeContent />} />
+          </Routes>
         </div>
-      </header>
+      </BrowserRouter>
     </div>
   );
 }

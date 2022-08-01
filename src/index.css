@@ -497,7 +497,7 @@ header ul, .dropdown_container, .dropdown_div {
     text-shadow: none;
     border-bottom: none;
 }
-.button-main {
+.link-active div {
     border-bottom: 2px solid var(--primary-color);
 }
 
@@ -648,4 +648,8 @@ input:checked + .slider::before {
 .fas {
   font-size: 30px;
   margin-right: 5px;
+}
+
+.hide {
+  display: none;
 }
