@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { NavLink } from 'react-router-dom';
 
 function SliderMenu({toggleMenu, menu_ref}) {
   const ref = useRef(null);
@@ -8,8 +9,8 @@ function SliderMenu({toggleMenu, menu_ref}) {
         <div className="dropdown-content-head">
             <div onClick={toggleMenu} className="closebtn"><img src="close-icon.png" className="close_icon img_style" /></div>
         </div>
-        <div><a href="/">Projects</a></div>
-        <div><a href="/contact">Contact</a></div>
+        <div><NavLink to="/" onClick={() => toggleMenu(1)}>Projects</NavLink></div>
+        <div><NavLink to="/contact" onClick={() => toggleMenu(2)}>Contact</NavLink></div>
     </div>
   );
 }

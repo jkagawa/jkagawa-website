@@ -15,8 +15,22 @@ function App() {
   const lightIcon_ref = useRef(null);
   const darkIcon_ref = useRef(null);
 
+  const [title, setTitle] = useState('Projects');
 
-  function toggleMenu() {
+  useEffect(() => {
+    document.title = title + ' | Joshua Kagawa';
+  }, [title]);
+
+  function changeTitle(code) {
+    if(code===1) {
+      setTitle('Projects');
+    } else if(code===2) {
+      setTitle('Contact');
+    }
+  }
+
+  function toggleMenu(code) {
+    changeTitle(code)
     const menu = menu_ref.current;
     const container = container_ref.current;
     menu.classList.toggle("show");
@@ -25,10 +39,7 @@ function App() {
 
   useEffect(() => {
     const toggleSwitch = lightDarkToggle_ref.current;
-    // const nav = document.getElementById('nav');
-    // const toggleIcon = document.getElementById('toggle-icon');
     const toggleIcon = toggleIcon_ref.current;
-    // const textBox = document.getElementById('text-box');
 
     function toggleLightDarkMode(isLight) {
       const lightIcon = lightIcon_ref.current;
@@ -91,7 +102,7 @@ function App() {
       <BrowserRouter>
         <SliderMenu toggleMenu={toggleMenu} menu_ref={menu_ref}/>
         <div id="container" ref={container_ref}>
-          <Nav toggleMenu={toggleMenu}/>
+          <Nav toggleMenu={toggleMenu} changeTitle={changeTitle} title={title}/>
           <div id="mid">
               <div className="theme-switch-wrapper">
                 <span id="toggle-icon" ref={toggleIcon_ref}>
