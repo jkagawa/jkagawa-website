@@ -19,12 +19,12 @@ function HomeContent() {
         </div>
         <div id="proj-climbing" className="non-intro-style-dark" style={{minHeight: "calc(100vh - 70px)", display: "flex", alignItems: "center", flexFlow: "wrap", paddingTop: "70px", paddingBottom: "0px"}}>
           <div className="project-group page-row">
-            <div className="project-title">Climbing Spot</div><div className="badge">Recent Project</div>
+            <div className="project-title">Climbing Spot</div><div className="badge">Recent Work</div>
             <div className="project-body-image"><img src="climbing-website-demo.gif" className="img_style" style={{width: "1080px", maxWidth: "100%", objectFit: "cover", height: "365px"}} /></div>
             <div className="project-body">A website that enables the discovery of rock climbing locations and rock climbers, powered by a RESTful API</div>
             <div className="project-body">Allows users to add, edit, and remove climbing locations and climbers. Specific features
     are locked through the use of sign-in and authentication functionality.</div>
-            <div className="project-body">Link to the <a href="https://climbing-spot-app.herokuapp.com" target="_blank" className="link-style">Climbing Spot website</a></div>
+            <div className="project-body">Link to the <a href="https://climbingspot.pythonanywhere.com/" target="_blank" className="link-style">Climbing Spot website</a></div>
           </div>
           <div className="non-intro-style page-row" style={{paddingTop: "15px", paddingBottom: "15px", width: "100%", alignSelf: "end", height: "50px"}}>
             <div style={{fontSize: "2rem"}}><a href="#proj-intro" className="jump-button"><i className="fas fa-chevron-up"></i></a><a href="#proj-budget" className="jump-button" style={{marginLeft: "15px"}}><i className="fas fa-chevron-down"></i></a></div>
