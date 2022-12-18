@@ -469,6 +469,7 @@ header ul, .dropdown_container, .dropdown_div {
     position: relative;
     animation: fromLeft 1s;
     animation-direction: normal;
+    z-index: -1;
 }
 
 .div_profile_text {
@@ -481,6 +482,7 @@ header ul, .dropdown_container, .dropdown_div {
     position: relative;
     animation: fromLeft 1s;
     animation-direction: normal;
+    z-index: -1;
 }
 
 .nav-button {

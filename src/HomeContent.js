@@ -9,7 +9,7 @@ function HomeContent() {
           <div className="intro_style page-row" style={{width: "100%"}}>
               <div className="div_profile_image"><img src="profile-photo.jpeg" className="img_profile img_style" /></div>
               <div className="div_profile_text">
-                Hello! My name is Joshua Kagawa. I'm a software developer.
+                Hello! My name is Joshua Kagawa and I'm a software developer.
                 <div style={{margin: "25px 0 50px"}}><a href="https://github.com/jkagawa" target="_blank" className="link-style"><span>Visit my GitHub</span></a></div>
               </div>
           </div>
