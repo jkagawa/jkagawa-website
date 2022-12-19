@@ -660,10 +660,6 @@ input:checked + .slider::before {
   display: none;
 }
 
-input[type=radio] {
-  display: none;
-}
-
 .card {
   position: absolute;
   width: 60%;
@@ -678,8 +674,8 @@ input[type=radio] {
 .card-container {
   width: 100%;
   max-width: 800px;
-  max-height: 600px;
-  height: 600px;
+  max-height: 800px;
+  height: 800px;
   transform-style: preserve-3d;
   display: flex;
   justify-content: center;
@@ -701,45 +697,24 @@ input[type=radio] {
   object-fit: cover;
 }
 
-/* #item-1:checked ~ .cards #project-3, #item-2:checked ~ .cards #project-4, #item-3:checked ~ .cards #project-1, #item-4:checked ~ .cards #project-2 {
-  transform: translatex(-80%) scale(.6);
-  opacity: .4;
-  z-index: 0;
-} */
-
-#item-1:checked ~ .cards #project-3,
-#item-2:checked ~ .cards #project-1,
-#item-3:checked ~ .cards #project-2 {
+#position3 {
   transform: translatex(-50%) scale(.8);
   opacity: 0.4;
   z-index: 1;
 }
 
-#item-1:checked ~ .cards #project-2,
-#item-2:checked ~ .cards #project-3,
-#item-3:checked ~ .cards #project-1 {
+#position2 {
   transform: translatex(50%) scale(.8);
   opacity: 0.4;
   z-index: 1;
 }
 
-#item-1:checked ~ .cards #project-1,
-#item-2:checked ~ .cards #project-2,
-#item-3:checked ~ .cards #project-3 {
+#position1 {
   transform: translatex(0) scale(1);
   opacity: 1;
   z-index: 2;
-
-  img {
-    box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
-  }
 }
 
-#item-1:checked ~ .cards #project-2 .proj-title, #item-1:checked ~ .cards #project-3 .proj-title,
-#item-1:checked ~ .cards #project-2 .proj-desc, #item-1:checked ~ .cards #project-3 .proj-desc,
-#item-2:checked ~ .cards #project-1 .proj-title, #item-2:checked ~ .cards #project-3 .proj-title,
-#item-2:checked ~ .cards #project-1 .proj-desc, #item-2:checked ~ .cards #project-3 .proj-desc,
-#item-3:checked ~ .cards #project-1 .proj-title, #item-3:checked ~ .cards #project-2 .proj-title,
-#item-3:checked ~ .cards #project-1 .proj-desc, #item-3:checked ~ .cards #project-2 .proj-desc {
+#position2 .proj-title, #position2 .proj-desc, #position3 .proj-title, #position3 .proj-desc {
   visibility: hidden;
 }
