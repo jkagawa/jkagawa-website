@@ -27,11 +27,11 @@ function HomeContent() {
       var id = positions[index];
       const p2 = document.getElementById(id);
       if(i==0) {
-        p2.style.transform = "translatex(50%) scale(.8)";
+        p2.style.transform = "translatex(50%) scale(.6)";
         p2.style.opacity = "0.4";
         p2.style.zIndex = "1";
       } else if(i==1) {
-        p2.style.transform = "translatex(-50%) scale(.8)";
+        p2.style.transform = "translatex(-50%) scale(.6)";
         p2.style.opacity = "0.4";
         p2.style.zIndex = "1";
       }
