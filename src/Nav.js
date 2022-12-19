@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import ThemeSwitcher from './ThemeSwitcher';
 
 function Nav({toggleMenu, changeTitle, title}) {
 
@@ -8,6 +9,7 @@ function Nav({toggleMenu, changeTitle, title}) {
         <div className="logo_style"><img src="letter-j.png" width="37px" className="img_style" /></div>
         <NavLink to="/" className={({ isActive }) => (isActive ? "link-active" : "")} onClick={() => changeTitle(1)}><div className="nav-button">Projects</div></NavLink>
         <NavLink to="/contact" className={({ isActive }) => (isActive ? "link-active" : "")} onClick={() => changeTitle(2)}><div className="nav-button">Contact</div></NavLink>
+        <ThemeSwitcher/>
       </div>
       <div className="dropdown_container">
         <div className="logo_style"><img src="letter-j.png" width="37px" className="img_style" /></div>

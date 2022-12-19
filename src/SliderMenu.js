@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { NavLink } from 'react-router-dom';
+import ThemeSwitcher from './ThemeSwitcher';
 
 function SliderMenu({toggleMenu, menu_ref}) {
   const ref = useRef(null);
@@ -11,6 +12,7 @@ function SliderMenu({toggleMenu, menu_ref}) {
         </div>
         <div><NavLink to="/" onClick={() => toggleMenu(1)}>Projects</NavLink></div>
         <div><NavLink to="/contact" onClick={() => toggleMenu(2)}>Contact</NavLink></div>
+        <ThemeSwitcher/>
     </div>
   );
 }

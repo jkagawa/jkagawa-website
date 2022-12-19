@@ -4,8 +4,6 @@ import HomeContent from './HomeContent';
 import ContactContent from './ContactContent';
 import Nav from './Nav';
 import SliderMenu from './SliderMenu';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const menu_ref = useRef(null);
@@ -37,48 +35,6 @@ function App() {
     container.classList.toggle("opacity_effect");
   }
 
-  useEffect(() => {
-    const toggleSwitch = lightDarkToggle_ref.current;
-    const toggleIcon = toggleIcon_ref.current;
-
-    function toggleLightDarkMode(isLight) {
-      const lightIcon = lightIcon_ref.current;
-      const darkIcon = darkIcon_ref.current;
-      isLight ? darkIcon.style.display = "none" : lightIcon.style.display = "none";
-      isLight ? lightIcon.style.display = "inline-block" : darkIcon.style.display = "inline-block";
-    }
-
-    function switchTheme(event) {
-      if(event.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme','dark');
-        toggleLightDarkMode(false);
-      }
-      else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme','light');
-        toggleLightDarkMode(true);
-      }
-    }
-
-    //Event Listener
-    toggleSwitch.addEventListener('change', switchTheme);
-
-    //Check Local Storage For Theme
-    const currTheme = localStorage.getItem('theme');
-    if(currTheme) {
-      document.documentElement.setAttribute('data-theme', currTheme);
-      if(currTheme==='dark') {
-        toggleSwitch.checked = true;
-        toggleLightDarkMode(false);
-      }
-      else {
-        toggleSwitch.checked = false;
-        toggleLightDarkMode(true);
-      }
-    }
-  }, []);
-
   window.onscroll = function(event) {
     var doc_el = document.documentElement;
     doc_el = (doc_el.clientHeight)? doc_el : document.body;
@@ -104,18 +60,7 @@ function App() {
         <div id="container" ref={container_ref}>
           <Nav toggleMenu={toggleMenu} changeTitle={changeTitle} title={title}/>
           <div id="mid">
-              <div className="theme-switch-wrapper">
-                <span id="toggle-icon" ref={toggleIcon_ref}>
-                  <span className="toggle-text"></span>
-                  <i className="fas fa-sun"></i>
-                  <FontAwesomeIcon icon={faSun} className="fas" ref={lightIcon_ref} />
-                  <FontAwesomeIcon icon={faMoon} className="fas hide" ref={darkIcon_ref} />
-                </span>
-                <label className="theme-switch">
-                  <input type="checkbox" ref={lightDarkToggle_ref}/>
-                  <div className="slider round"></div>
-                </label>
-              </div>
+
                 <Routes>
                   <Route path="/" element={<HomeContent lightDarkToggle_ref={lightDarkToggle_ref} toggleIcon_ref={toggleIcon_ref} lightIcon_ref={lightIcon_ref} darkIcon_ref={darkIcon_ref} />} />
                   <Route path="/contact" element={<ContactContent />} />
