@@ -675,7 +675,7 @@ input:checked + .slider::before {
   width: 100%;
   max-width: 800px;
   max-height: 800px;
-  height: 800px;
+  height: 600px;
   transform-style: preserve-3d;
   display: flex;
   justify-content: center;
@@ -717,4 +717,17 @@ input:checked + .slider::before {
 
 #position2 .proj-title, #position2 .proj-desc, #position3 .proj-title, #position3 .proj-desc {
   visibility: hidden;
+}
+
+.proj-title {
+  padding: 10px;
+}
+
+#description {
+  padding: 20px;
+  font-size: 1rem;
+  margin: auto;
+  text-align: left;
+  background: white;
+  border-radius: 8px;
 }

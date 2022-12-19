@@ -5,37 +5,21 @@ function HomeContent() {
 
   const positions = ["position1", "position2", "position3"];
   const images = ["climbing-website-demo.gif", "budget-app-demo-crop.gif", "task-wall-demo.PNG"];
+  const description = ['A website that enables the discovery of rock climbing locations and rock climbers, powered by a RESTful API<br/><br/>Allows users to add, edit, and remove climbing locations and climbers. Specific features are locked through the use of sign-in and authentication functionality.<br/><br/><a href="https://climbingspot.pythonanywhere.com/" target="_blank" class="link-style">Link to the project</a>', 'A budgeting app that lets users keep track of how much they are spending in a clean and easy-to-use interface<br/><br/>Allows users to set a monthly budget and enter expenses.<br/><br/><a href="https://play.google.com/store/apps/details?id=com.jkagawa.mybudget" target="_blank" class="link-style">Link to the project</a>', '<a href="https://play.google.com/store/apps/details?id=com.jkagawa.mybudget" target="_blank" class="link-style">Link to the project</a>'];
 
   useEffect(() => {
-    // const p1 = document.getElementById("position1");
-    // const p2 = document.getElementById("position2");
-    // const p3 = document.getElementById("position3");
-    // p1.style.transform = "translatex(0) scale(1)";
-    // p1.style.opacity = "1";
-    // p1.style.zIndex = "2";
-    // p1.getElementsByClassName("proj-title")[0].style.visibility = "visible";
-    // p1.getElementsByClassName("proj-desc")[0].style.visibility = "visible";
-    // p2.style.transform = "translatex(50%) scale(.8)";
-    // p2.style.opacity = "0.4";
-    // p2.style.zIndex = "1";
-    // p2.getElementsByClassName("proj-title")[0].style.visibility = "hidden";
-    // p2.getElementsByClassName("proj-desc")[0].style.visibility = "hidden";
-    // p3.style.transform = "translatex(-50%) scale(.8)";
-    // p3.style.opacity = "0.4";
-    // p3.style.zIndex = "1";
-    // p3.getElementsByClassName("proj-title")[0].style.visibility = "hidden";
-    // p3.getElementsByClassName("proj-desc")[0].style.visibility = "hidden";
   }, []);
 
   function changeOrder(e) {
     var indexOfSelected = e.currentTarget.getAttribute("data-id")-1;
     var idOfSelected = positions[indexOfSelected];
     const p1 = document.getElementById(idOfSelected);
+    const desc = document.getElementById("description");
     p1.style.transform = "translatex(0) scale(1)";
     p1.style.opacity = "1";
     p1.style.zIndex = "2";
     p1.getElementsByClassName("proj-title")[0].style.visibility = "visible";
-    p1.getElementsByClassName("proj-desc")[0].style.visibility = "visible";
+    desc.innerHTML = description[indexOfSelected];
     var index = indexOfSelected;
     for(var i=0; i<positions.length-1 ; i++) {
       index = index + 1;
@@ -52,7 +36,6 @@ function HomeContent() {
         p2.style.zIndex = "1";
       }
       p2.getElementsByClassName("proj-title")[0].style.visibility = "hidden";
-      p2.getElementsByClassName("proj-desc")[0].style.visibility = "hidden";
 
     }
 
@@ -77,32 +60,19 @@ function HomeContent() {
                   <label className="card" id="position1" data-id="1" onClick={changeOrder}>
                     <div className="proj-title">Climbing Spot</div>
                     <img src="climbing-website-demo.gif" alt="project" />
-                    <div className="proj-desc">
-                      <div className="project-body">A website that enables the discovery of rock climbing locations and rock climbers, powered by a RESTful API</div>
-                      <div className="project-body">Allows users to add, edit, and remove climbing locations and climbers. Specific features
-              are locked through the use of sign-in and authentication functionality.</div>
-                      <div className="project-body"><a href="https://climbingspot.pythonanywhere.com/" target="_blank" className="link-style">Link to the project</a></div>
-                    </div>
                   </label>
                   <label className="card" id="position2" data-id="2" onClick={changeOrder}>
-                    <span className="proj-title">My Budget</span>
+                    <div className="proj-title">My Budget</div>
                     <img src="budget-app-demo-crop.gif" alt="project" />
-                    <div className="proj-desc">
-                      <div className="project-body">A budgeting app that lets users keep track of how much they are spending in a clean and
-                easy-to-use interface</div>
-                      <div className="project-body">Allows users to set a monthly budget and enter expenses.</div>
-                      <div className="project-body"><a href="https://play.google.com/store/apps/details?id=com.jkagawa.mybudget" target="_blank" className="link-style">Link to the project</a></div>
-                    </div>
                   </label>
                   <label className="card" id="position3" data-id="3" onClick={changeOrder}>
-                    <span className="proj-title">Task Wall</span>
+                    <div className="proj-title">Task Wall</div>
                     <img src="task-wall-demo.PNG" alt="project" />
-                    <div className="proj-desc">
-                      <div className="project-body"><a href="https://task-wall.netlify.app/" target="_blank" className="link-style">Link to the project</a></div>
-                    </div>
                   </label>
                 </div>
               </div>
+              <div id="description">A website that enables the discovery of rock climbing locations and rock climbers, powered by a RESTful API<br/><br/>Allows users to add, edit, and remove climbing locations and climbers. Specific features
+      are locked through the use of sign-in and authentication functionality.<br/><br/><a href="https://climbingspot.pythonanywhere.com/" target="_blank" className="link-style">Link to the project</a></div>
             </div>
         </div>
 
