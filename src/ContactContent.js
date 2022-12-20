@@ -3,7 +3,7 @@ function ContactContent() {
   return (
     <div class="page-row">
         <div>Contact Me</div>
-        <div class="contact-form" style={{width: "100%", maxWidth: "720px", margin: "auto"}}>
+        <div class="contact-form" style={{width: "95%", maxWidth: "720px", margin: "auto"}}>
         <form action="https://formspree.io/xzbkzzgg" method="POST">
             <label for="name">Name</label>
             <input type="text" name="name" required />

@@ -430,6 +430,9 @@ header ul, .dropdown_container, .dropdown_div {
     font-size: 18px;
     display: block;
     box-sizing: border-box;
+    font-size: 1rem;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
 }
 
 .contact-form form textarea {
