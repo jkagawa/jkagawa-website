@@ -1,13 +1,23 @@
 import { useRef, useEffect } from "react";
+import projects from './projects.json'
 
 function HomeContent() {
   const ref = useRef(null);
+  var projArr = JSON.parse(JSON.stringify(projects));
 
-  const positions = ["position1", "position2", "position3"];
-  const images = ["climbing-website-demo.gif", "budget-app-demo-crop.gif", "task-wall-demo.PNG"];
-  const description = ['<a href="https://climbingspot.pythonanywhere.com/" target="_blank" class="link-style">Link to the project</a><br/><br/>A website that enables the discovery of rock climbing locations and rock climbers, powered by a RESTful API<br/><br/>Allows users to add, edit, and remove climbing locations and climbers. Specific features are locked through the use of sign-in and authentication functionality.', '<a href="https://play.google.com/store/apps/details?id=com.jkagawa.mybudget" target="_blank" class="link-style">Link to the project</a><br/><br/>A budgeting app that lets users keep track of how much they are spending in a clean and easy-to-use interface<br/><br/>Allows users to set a monthly budget and enter expenses.', '<a href="https://play.google.com/store/apps/details?id=com.jkagawa.mybudget" target="_blank" class="link-style">Link to the project</a>'];
+  let positions = [];
+  let images = [];
+  let descriptions = [];
+  for(var i=0; i<projArr.length; i++) {
+    var proj = projArr[i];
+    positions.push(proj.position);
+    images.push(proj.image);
+    descriptions.push(proj.description);
+  }
 
   useEffect(() => {
+    const desc = document.getElementById("description");
+    desc.innerHTML = descriptions[0];
   }, []);
 
   function changeOrder(e) {
@@ -19,7 +29,7 @@ function HomeContent() {
     p1.style.opacity = "1";
     p1.style.zIndex = "2";
     p1.getElementsByClassName("proj-title")[0].style.visibility = "visible";
-    desc.innerHTML = description[indexOfSelected];
+    desc.innerHTML = descriptions[indexOfSelected];
     var index = indexOfSelected;
     for(var i=0; i<positions.length-1 ; i++) {
       index = index + 1;
@@ -71,8 +81,7 @@ function HomeContent() {
                   </label>
                 </div>
               </div>
-              <div id="description"><a href="https://climbingspot.pythonanywhere.com/" target="_blank" className="link-style">Link to the project</a><br/><br/>A website that enables the discovery of rock climbing locations and rock climbers, powered by a RESTful API<br/><br/>Allows users to add, edit, and remove climbing locations and climbers. Specific features
-      are locked through the use of sign-in and authentication functionality.</div>
+              <div id="description"></div>
             </div>
         </div>
 
