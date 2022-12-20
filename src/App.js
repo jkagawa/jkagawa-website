@@ -17,6 +17,7 @@ function App() {
 
   useEffect(() => {
     document.title = title + ' | Joshua Kagawa';
+    window.addEventListener('resize', hideSliderMenu);
   }, [title]);
 
   function changeTitle(code) {
@@ -33,6 +34,13 @@ function App() {
     const container = container_ref.current;
     menu.classList.toggle("show");
     container.classList.toggle("opacity_effect");
+  }
+
+  function hideSliderMenu() {
+    const menu = menu_ref.current;
+    const container = container_ref.current;
+    menu.classList.remove("show");
+    container.classList.remove("opacity_effect");
   }
 
   window.onscroll = function(event) {
