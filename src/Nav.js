@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher';
 
-function Nav({toggleMenu, changeTitle, title}) {
+function Nav({toggleMenu, changeTitle, title, lightDarkToggle_ref}) {
 
   return (
     <header>

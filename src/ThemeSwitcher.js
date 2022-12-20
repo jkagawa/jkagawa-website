@@ -2,13 +2,15 @@ import { useRef, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
-function ThemeSwitcher({toggleMenu, menu_ref}) {
+function ThemeSwitcher() {
   const ref = useRef(null);
 
   const lightDarkToggle_ref = useRef(null);
   const toggleIcon_ref = useRef(null);
   const lightIcon_ref = useRef(null);
   const darkIcon_ref = useRef(null);
+
+
 
   useEffect(() => {
     const toggleSwitch = lightDarkToggle_ref.current;
@@ -37,19 +39,29 @@ function ThemeSwitcher({toggleMenu, menu_ref}) {
     //Event Listener
     toggleSwitch.addEventListener('change', switchTheme);
 
-    //Check Local Storage For Theme
-    const currTheme = localStorage.getItem('theme');
-    if(currTheme) {
-      document.documentElement.setAttribute('data-theme', currTheme);
-      if(currTheme==='dark') {
-        toggleSwitch.checked = true;
-        toggleLightDarkMode(false);
-      }
-      else {
-        toggleSwitch.checked = false;
-        toggleLightDarkMode(true);
+    setTheme(toggleSwitch);
+
+    window.addEventListener('resize', setTheme);
+
+    function setTheme(toggleSwitch) {
+      console.log("Theme change");
+      //Check Local Storage For Theme
+      const currTheme = localStorage.getItem('theme');
+      if(currTheme) {
+        document.documentElement.setAttribute('data-theme', currTheme);
+        if(currTheme==='dark') {
+          // toggleSwitch.checked = true;
+          lightDarkToggle_ref.current.checked = true;
+          toggleLightDarkMode(false);
+        }
+        else {
+          // toggleSwitch.checked = false;
+          lightDarkToggle_ref.current.checked = false;
+          toggleLightDarkMode(true);
+        }
       }
     }
+
   }, []);
 
   return (

@@ -23,6 +23,7 @@ code {
   --background: #d8d8d8;
   --background-alt: #cecece;
   --background-pure: #FFFFFF;
+  --background-pure2: #FFFFFF;
   --box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -36,6 +37,7 @@ code {
   --background: #191919;
   --background-alt: #000000;
   --background-pure: #191919;
+  --background-pure2: gray;
 }
 
 html {
@@ -548,11 +550,11 @@ header ul, .dropdown_container, .dropdown_div {
 }
 
 #toggle-icon {
-  color: var(--background-pure);
+  color: var(--background-pure2);
 }
 
 .slider {
-  background: var(--background-pure);
+  background: var(--background-pure2);
   bottom: 0;
   cursor: pointer;
   left: 0;
