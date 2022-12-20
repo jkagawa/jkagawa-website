@@ -100,15 +100,6 @@ header h1 {
     color: var(--primary-color);
     align-items: center;
 }
-.non-intro-style {
-    background: var(--background);
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    align-items: center;
-    color: var(--primary-color);
-}
 
 .link-style {
 	color: var(--primary-color);
@@ -117,6 +108,7 @@ header h1 {
   border: 1px solid var(--primary-color);
   border-radius: 8px;
   display: inline-block;
+  margin: auto;
 }
 .link-style:hover {
   background: var(--primary-color);
@@ -667,9 +659,12 @@ input:checked + .slider::before {
   font-size: 1rem;
   margin: auto;
   text-align: left;
-  background: white;
+  background: var(--background-pure);
+  color: var(--primary-color);
   border-radius: 8px;
   margin: 10px;
+  min-height: 150px;
+  text-align: center;
 }
 
 @media (min-width: 769px) {

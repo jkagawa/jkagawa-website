@@ -5,7 +5,7 @@ function HomeContent() {
 
   const positions = ["position1", "position2", "position3"];
   const images = ["climbing-website-demo.gif", "budget-app-demo-crop.gif", "task-wall-demo.PNG"];
-  const description = ['A website that enables the discovery of rock climbing locations and rock climbers, powered by a RESTful API<br/><br/>Allows users to add, edit, and remove climbing locations and climbers. Specific features are locked through the use of sign-in and authentication functionality.<br/><br/><a href="https://climbingspot.pythonanywhere.com/" target="_blank" class="link-style">Link to the project</a>', 'A budgeting app that lets users keep track of how much they are spending in a clean and easy-to-use interface<br/><br/>Allows users to set a monthly budget and enter expenses.<br/><br/><a href="https://play.google.com/store/apps/details?id=com.jkagawa.mybudget" target="_blank" class="link-style">Link to the project</a>', '<a href="https://play.google.com/store/apps/details?id=com.jkagawa.mybudget" target="_blank" class="link-style">Link to the project</a>'];
+  const description = ['<a href="https://climbingspot.pythonanywhere.com/" target="_blank" class="link-style">Link to the project</a><br/><br/>A website that enables the discovery of rock climbing locations and rock climbers, powered by a RESTful API<br/><br/>Allows users to add, edit, and remove climbing locations and climbers. Specific features are locked through the use of sign-in and authentication functionality.', '<a href="https://play.google.com/store/apps/details?id=com.jkagawa.mybudget" target="_blank" class="link-style">Link to the project</a><br/><br/>A budgeting app that lets users keep track of how much they are spending in a clean and easy-to-use interface<br/><br/>Allows users to set a monthly budget and enter expenses.', '<a href="https://play.google.com/store/apps/details?id=com.jkagawa.mybudget" target="_blank" class="link-style">Link to the project</a>'];
 
   useEffect(() => {
   }, []);
@@ -71,8 +71,8 @@ function HomeContent() {
                   </label>
                 </div>
               </div>
-              <div id="description">A website that enables the discovery of rock climbing locations and rock climbers, powered by a RESTful API<br/><br/>Allows users to add, edit, and remove climbing locations and climbers. Specific features
-      are locked through the use of sign-in and authentication functionality.<br/><br/><a href="https://climbingspot.pythonanywhere.com/" target="_blank" className="link-style">Link to the project</a></div>
+              <div id="description"><a href="https://climbingspot.pythonanywhere.com/" target="_blank" className="link-style">Link to the project</a><br/><br/>A website that enables the discovery of rock climbing locations and rock climbers, powered by a RESTful API<br/><br/>Allows users to add, edit, and remove climbing locations and climbers. Specific features
+      are locked through the use of sign-in and authentication functionality.</div>
             </div>
         </div>
 
