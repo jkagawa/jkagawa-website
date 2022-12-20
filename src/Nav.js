@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 function Nav({toggleMenu, changeTitle, title, lightDarkToggle_ref}) {
 
@@ -15,7 +17,7 @@ function Nav({toggleMenu, changeTitle, title, lightDarkToggle_ref}) {
         <div className="logo_style"><img src="letter-j.png" width="37px" className="img_style" /></div>
         <div className="header-title">{title}</div>
         <div className="dropdown">
-          <button className="dropbtn" onClick={toggleMenu}><img src="menu-icon.png" className="menu_icon img_style" /></button>
+          <button className="dropbtn" onClick={toggleMenu}><FontAwesomeIcon icon={faBars} className="menu_icon"/></button>
         </div>
       </div>
     </header>

@@ -44,7 +44,6 @@ function ThemeSwitcher() {
     window.addEventListener('resize', setTheme);
 
     function setTheme(toggleSwitch) {
-      console.log("Theme change");
       //Check Local Storage For Theme
       const currTheme = localStorage.getItem('theme');
       if(currTheme) {
