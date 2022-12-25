@@ -113,8 +113,9 @@ header h1 {
   margin: auto;
 }
 .link-style:hover {
-  background: var(--primary-color);
-  color: var(--background-pure);
+  background: var(--primary-color) !important;
+  color: var(--background-pure) !important;
+  border: 1px solid var(--primary-color) !important;
   text-decoration: none;
 }
 

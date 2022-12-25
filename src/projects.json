@@ -1,20 +1,30 @@
 [
     {
-      "name": "project1",
-      "position": "position1",
-      "image": "climbing-website-demo.gif",
-      "description": "<a href='https://climbingspot.pythonanywhere.com/' target='_blank' class='link-style'>Link to the project</a><br/><br/>A website that enables the discovery of rock climbing locations and rock climbers, powered by a RESTful API.<br/><br/>Allows users to add, edit, and remove climbing locations and climbers. Specific features are locked through the use of sign-in and authentication functionality."
+      "name" : "project1",
+      "title" : "Climbing Spot",
+      "image" : "climbing-website-demo.gif",
+      "description" : "<a href='https://climbingspot.pythonanywhere.com/' target='_blank' class='link-style'>Link to the project</a><br/><br/>Built using Jinja and Flask<br/><br/>Languages include Python, JavaScript, HTML/CSS, and MySQL",
+      "color" : "#0080FE"
     },
     {
-      "name": "project2",
-      "position": "position2",
-      "image": "budget-app-demo-crop.gif",
-      "description": "<a href='https://play.google.com/store/apps/details?id=com.jkagawa.mybudget' target='_blank' class='link-style'>Link to the project</a><br/><br/>A budgeting app that lets users keep track of how much they are spending in a clean and easy-to-use interface.<br/><br/>Allows users to set a monthly budget and enter expenses."
+      "name" : "project2",
+      "title" : "My Budget",
+      "image" : "budget-app-demo-crop.gif",
+      "description": "<a href='https://play.google.com/store/apps/details?id=com.jkagawa.mybudget' target='_blank' class='link-style'>Link to the project</a><br/><br/>Built using vanilla Java in Android Studio<br/><br/>Languages include Java and XML",
+      "color" : "#404FB7"
     },
     {
-      "name": "project3",
-      "position": "position3",
-      "image": "task-wall-demo.PNG",
-      "description": "<a href='https://play.google.com/store/apps/details?id=com.jkagawa.mybudget' target='_blank' class='link-style'>Link to the project</a>"
+      "name" : "project3",
+      "title" : "Task Wall",
+      "image" : "task-wall-demo.PNG",
+      "description" : "<a href='https://play.google.com/store/apps/details?id=com.jkagawa.mybudget' target='_blank' class='link-style'>Link to the project</a><br/><br/>Built using React<br/><br/>Languages include JavaScript and HTML/CSS",
+      "color" : "#2F435A"
+    },
+    {
+      "name" : "project4",
+      "title" : "Quote Generator",
+      "image" : "quote-generator-demo.png",
+      "description" : "<a href='https://jkagawa.github.io/quote-generator/' target='_blank' class='link-style'>Link to the project</a>",
+      "color" : "#064DC9"
     }
 ]

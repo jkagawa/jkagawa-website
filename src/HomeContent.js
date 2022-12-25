@@ -3,51 +3,97 @@ import projects from './projects.json'
 
 function HomeContent() {
   const ref = useRef(null);
-  var projArr = JSON.parse(JSON.stringify(projects));
+  let projArr = JSON.parse(JSON.stringify(projects));
 
-  let positions = [];
   let images = [];
+  let titles = [];
   let descriptions = [];
-  for(var i=0; i<projArr.length; i++) {
-    var proj = projArr[i];
-    positions.push(proj.position);
+  let colors = [];
+  for(let i=0; i<projArr.length; i++) {
+    let proj = projArr[i];
     images.push(proj.image);
+    titles.push(proj.title);
     descriptions.push(proj.description);
+    colors.push(proj.color);
+  }
+
+  const positionObj = {
+    "position1": 0,
+    "position2": 1,
+    "position3": 3
   }
 
   useEffect(() => {
     const desc = document.getElementById("description");
     desc.innerHTML = descriptions[0];
+
+    const firstChild = desc.firstChild;
+    firstChild.style.background = colors[0];
+    firstChild.style.border = "1px solid " + colors[0];
+    firstChild.style.color = "white";
   }, []);
 
   function changeOrder(e) {
-    var indexOfSelected = e.currentTarget.getAttribute("data-id")-1;
-    var idOfSelected = positions[indexOfSelected];
-    const p1 = document.getElementById(idOfSelected);
+    let index = Number(e.currentTarget.getAttribute("data-id"));
+    let pos = Object.keys(positionObj).find(key => positionObj[key] === Number(index));
+    const p1 = document.getElementById(pos);
     const desc = document.getElementById("description");
     p1.style.transform = "translatex(0) scale(1)";
     p1.style.opacity = "1";
     p1.style.zIndex = "2";
     p1.getElementsByClassName("proj-title")[0].style.visibility = "visible";
-    desc.innerHTML = descriptions[indexOfSelected];
-    var index = indexOfSelected;
-    for(var i=0; i<positions.length-1 ; i++) {
-      index = index + 1;
-      if(index >= positions.length) { index = 0; }
-      var id = positions[index];
-      const p2 = document.getElementById(id);
-      if(i==0) {
-        p2.style.transform = "translatex(50%) scale(.6)";
-        p2.style.opacity = "0.4";
-        p2.style.zIndex = "1";
-      } else if(i==1) {
-        p2.style.transform = "translatex(-50%) scale(.6)";
-        p2.style.opacity = "0.4";
-        p2.style.zIndex = "1";
-      }
-      p2.getElementsByClassName("proj-title")[0].style.visibility = "hidden";
+    p1.getElementsByClassName("proj-title")[0].innerHTML = titles[index];
+    p1.getElementsByTagName("img")[0].src = images[index];
+    desc.innerHTML = descriptions[index];
+    const firstChild = desc.firstChild;
+    firstChild.style.background = colors[index];
+    firstChild.style.border = "1px solid " + colors[index];
+    firstChild.style.color = "white";
 
+    let leftIndex = index - 1;
+    let rightIndex = index + 1;
+
+    if(leftIndex < 0) {
+      console.log("RAN LEFT CONDITION");
+      leftIndex = images.length - 1;
     }
+    else if(rightIndex >= images.length) {
+      rightIndex = 0;
+    }
+
+    console.log(positionObj);
+    let posNumber = Number(pos.slice(-1));
+    let leftPosition = "position" + String(posNumber-1);
+    let rightPosition = "position" + String(posNumber+1);
+    if(posNumber-1 < 1) {
+      leftPosition = "position3";
+    }
+    else if(posNumber+1 > 3) {
+      rightPosition = "position1";
+    }
+    positionObj[leftPosition] = leftIndex;
+    positionObj[rightPosition] = rightIndex;
+
+    let leftEl = document.getElementById(leftPosition);
+    let rightEl = document.getElementById(rightPosition);
+    console.log(leftIndex);
+    console.log(rightIndex);
+    console.log(leftPosition);
+    console.log(rightPosition);
+    console.log(positionObj);
+      leftEl.style.transform = "translatex(-50%) scale(.6)";
+      leftEl.style.opacity = "0.4";
+      leftEl.style.zIndex = "1";
+      leftEl.getElementsByClassName("proj-title")[0].style.visibility = "hidden";
+      leftEl.getElementsByTagName("img")[0].src = images[leftIndex];
+      leftEl.setAttribute("data-id", leftIndex);
+
+      rightEl.style.transform = "translatex(50%) scale(.6)";
+      rightEl.style.opacity = "0.4";
+      rightEl.style.zIndex = "1";
+      rightEl.getElementsByClassName("proj-title")[0].style.visibility = "hidden";
+      rightEl.getElementsByTagName("img")[0].src = images[rightIndex];
+      rightEl.setAttribute("data-id", rightIndex);
 
   }
 
@@ -67,11 +113,11 @@ function HomeContent() {
             <div className="project-group page-row">
               <div className="card-container">
                 <div className="cards">
-                  <label className="card" id="position1" data-id="1" onClick={changeOrder}>
+                  <label className="card" id="position1" data-id="0" onClick={changeOrder}>
                     <div className="proj-title">Climbing Spot</div>
                     <img src="climbing-website-demo.gif" alt="project" />
                   </label>
-                  <label className="card" id="position2" data-id="2" onClick={changeOrder}>
+                  <label className="card" id="position2" data-id="1" onClick={changeOrder}>
                     <div className="proj-title">My Budget</div>
                     <img src="budget-app-demo-crop.gif" alt="project" />
                   </label>
@@ -83,10 +129,6 @@ function HomeContent() {
               </div>
               <div id="description"></div>
             </div>
-        </div>
-
-        <div className="non-intro-style page-row" style={{paddingTop: "15px", paddingBottom: "15px", width: "100%", alignSelf: "end", height: "50px"}}>
-            <div style={{fontSize: "2rem"}}><a href="#proj-intro" className="jump-button"><i className="fas fa-chevron-up"></i></a><a href="#proj-budget" className="jump-button" style={{marginLeft: "15px"}}><i className="fas fa-chevron-down"></i></a></div>
         </div>
 
     </div>
