@@ -666,7 +666,7 @@ input:checked + .slider::before {
 
 #description {
   padding: 20px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: auto;
   text-align: left;
   background: var(--background-pure);
