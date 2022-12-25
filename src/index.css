@@ -232,7 +232,7 @@ ul li:hover ul {
     list-style-type: none;
 /*    background: linear-gradient(45deg, rgba(255,255,255,1) 40%, rgba(201,214,255,1) 60%, rgba(77,121,255,1) 85%, rgba(63,111,255,1) 100%);*/
     /* background: linear-gradient(45deg, #09009f, #00ff95 80%); */
-  background: var(--on-primary);
+  background: var(--background);
 	color: black;
 	margin: 0;
 	width: 100%;
@@ -675,6 +675,14 @@ input:checked + .slider::before {
   margin: 10px;
   min-height: 150px;
   text-align: center;
+}
+
+.primary-color {
+  background: var(--primary-color);
+}
+
+.not-primary-color {
+  background: var(--background-pure2);
 }
 
 @media (min-width: 769px) {

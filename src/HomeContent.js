@@ -35,11 +35,29 @@ function HomeContent() {
     const p1 = document.getElementById("position1");
     const p2 = document.getElementById("position2");
     const p3 = document.getElementById("position3");
-    var myInterval = setInterval(() => move(p1, p2, p3), 4000);
+    var myInterval = setInterval(() => move(p1, p2, p3), 5000);
     p2.addEventListener("click", () => clear(myInterval));
     p3.addEventListener("click", () => clear(myInterval));
 
+    generateCarouselIndicator(0);
+
   }, []);
+
+  function generateCarouselIndicator(currentIndex) {
+    const carouselIndicator = document.getElementById("carousel-indicator");
+    carouselIndicator.innerHTML = "";
+    for(let i=0; i<images.length; i++) {
+      const el = document.createElement("SPAN");
+      el.style.height = "15px";
+      el.style.width = "15px";
+      el.style.borderRadius = "50%";
+      el.style.display = "inline-block";
+      el.style.margin = "5px";
+      if(i == currentIndex) { el.classList.add("primary-color"); }
+      else { el.classList.add("not-primary-color"); }
+      carouselIndicator.appendChild(el);
+    }
+  }
 
   function move(p1, p2, p3) {
     moveLeft(p1, p2, p3);
@@ -50,12 +68,10 @@ function HomeContent() {
   function moveLeft(p1, p2, p3) {
     p1.style.transform = "translatex(-10%) scale(1)";
     p2.style.transform = "translatex(40%) scale(.8)";
-    // p3.style.transform = "translatex(-40%) scale(.7)";
   }
   function moveRight(p1, p2, p3) {
     p1.style.transform = "translatex(0%) scale(1)";
     p2.style.transform = "translatex(50%) scale(.6)";
-    // p3.style.transform = "translatex(-50%) scale(.6)";
   }
   function clear(myInterval) {
     console.log(myInterval);
@@ -64,6 +80,7 @@ function HomeContent() {
 
   function changeOrder(e) {
     let index = Number(e.currentTarget.getAttribute("data-id"));
+    generateCarouselIndicator(index);
     let pos = Object.keys(positionObj).find(key => positionObj[key] === Number(index));
     const p1 = document.getElementById(pos);
     const desc = document.getElementById("description");
@@ -149,6 +166,7 @@ function HomeContent() {
                   </label>
                 </div>
               </div>
+              <div id="carousel-indicator"></div>
               <div id="description"></div>
             </div>
         </div>
