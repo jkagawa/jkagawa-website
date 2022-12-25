@@ -24,7 +24,7 @@
       "name" : "project4",
       "title" : "Quote Generator",
       "image" : "quote-generator-demo.png",
-      "description" : "<a href='https://jkagawa.github.io/quote-generator/' target='_blank' class='link-style'>Link to the project</a>",
+      "description" : "<a href='https://jkagawa.github.io/quote-generator/' target='_blank' class='link-style'>Link to the project</a><br/><br/>Built using vanilla JavaScript<br/><br/>Languages include JavaScript and HTML/CSS",
       "color" : "#064DC9"
     }
 ]

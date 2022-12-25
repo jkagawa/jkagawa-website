@@ -31,7 +31,36 @@ function HomeContent() {
     firstChild.style.background = colors[0];
     firstChild.style.border = "1px solid " + colors[0];
     firstChild.style.color = "white";
+
+    const p1 = document.getElementById("position1");
+    const p2 = document.getElementById("position2");
+    const p3 = document.getElementById("position3");
+    var myInterval = setInterval(() => move(p1, p2, p3), 4000);
+    p2.addEventListener("click", () => clear(myInterval));
+    p3.addEventListener("click", () => clear(myInterval));
+
   }, []);
+
+  function move(p1, p2, p3) {
+    moveLeft(p1, p2, p3);
+    setTimeout(() => moveRight(p1, p2, p3), 250);
+    setTimeout(() => moveLeft(p1, p2, p3), 500);
+    setTimeout(() => moveRight(p1, p2, p3), 750);
+  }
+  function moveLeft(p1, p2, p3) {
+    p1.style.transform = "translatex(-10%) scale(1)";
+    p2.style.transform = "translatex(40%) scale(.8)";
+    // p3.style.transform = "translatex(-40%) scale(.7)";
+  }
+  function moveRight(p1, p2, p3) {
+    p1.style.transform = "translatex(0%) scale(1)";
+    p2.style.transform = "translatex(50%) scale(.6)";
+    // p3.style.transform = "translatex(-50%) scale(.6)";
+  }
+  function clear(myInterval) {
+    console.log(myInterval);
+    clearInterval(myInterval);
+  }
 
   function changeOrder(e) {
     let index = Number(e.currentTarget.getAttribute("data-id"));
@@ -54,14 +83,12 @@ function HomeContent() {
     let rightIndex = index + 1;
 
     if(leftIndex < 0) {
-      console.log("RAN LEFT CONDITION");
       leftIndex = images.length - 1;
     }
     else if(rightIndex >= images.length) {
       rightIndex = 0;
     }
 
-    console.log(positionObj);
     let posNumber = Number(pos.slice(-1));
     let leftPosition = "position" + String(posNumber-1);
     let rightPosition = "position" + String(posNumber+1);
@@ -76,24 +103,19 @@ function HomeContent() {
 
     let leftEl = document.getElementById(leftPosition);
     let rightEl = document.getElementById(rightPosition);
-    console.log(leftIndex);
-    console.log(rightIndex);
-    console.log(leftPosition);
-    console.log(rightPosition);
-    console.log(positionObj);
-      leftEl.style.transform = "translatex(-50%) scale(.6)";
-      leftEl.style.opacity = "0.4";
-      leftEl.style.zIndex = "1";
-      leftEl.getElementsByClassName("proj-title")[0].style.visibility = "hidden";
-      leftEl.getElementsByTagName("img")[0].src = images[leftIndex];
-      leftEl.setAttribute("data-id", leftIndex);
+    leftEl.style.transform = "translatex(-50%) scale(.6)";
+    leftEl.style.opacity = "0.4";
+    leftEl.style.zIndex = "1";
+    leftEl.getElementsByClassName("proj-title")[0].style.visibility = "hidden";
+    leftEl.getElementsByTagName("img")[0].src = images[leftIndex];
+    leftEl.setAttribute("data-id", leftIndex);
 
-      rightEl.style.transform = "translatex(50%) scale(.6)";
-      rightEl.style.opacity = "0.4";
-      rightEl.style.zIndex = "1";
-      rightEl.getElementsByClassName("proj-title")[0].style.visibility = "hidden";
-      rightEl.getElementsByTagName("img")[0].src = images[rightIndex];
-      rightEl.setAttribute("data-id", rightIndex);
+    rightEl.style.transform = "translatex(50%) scale(.6)";
+    rightEl.style.opacity = "0.4";
+    rightEl.style.zIndex = "1";
+    rightEl.getElementsByClassName("proj-title")[0].style.visibility = "hidden";
+    rightEl.getElementsByTagName("img")[0].src = images[rightIndex];
+    rightEl.setAttribute("data-id", rightIndex);
 
   }
 
@@ -122,8 +144,8 @@ function HomeContent() {
                     <img src="budget-app-demo-crop.gif" alt="project" />
                   </label>
                   <label className="card" id="position3" data-id="3" onClick={changeOrder}>
-                    <div className="proj-title">Task Wall</div>
-                    <img src="task-wall-demo.PNG" alt="project" />
+                    <div className="proj-title">Quote Generator</div>
+                    <img src="quote-generator-demo.png" alt="project" />
                   </label>
                 </div>
               </div>
