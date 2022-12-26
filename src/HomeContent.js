@@ -5,6 +5,7 @@ function HomeContent() {
   const ref = useRef(null);
   let projArr = JSON.parse(JSON.stringify(projects));
 
+  let nudgeOn = true;
   let images = [];
   let titles = [];
   let descriptions = [];
@@ -35,7 +36,7 @@ function HomeContent() {
     const p1 = document.getElementById("position1");
     const p2 = document.getElementById("position2");
     const p3 = document.getElementById("position3");
-    var myInterval = setInterval(() => move(p1, p2, p3), 5000);
+    let myInterval = setInterval(() => move(p1, p2, p3), 5000);
     p2.addEventListener("click", () => clear(myInterval));
     p3.addEventListener("click", () => clear(myInterval));
 
@@ -66,19 +67,28 @@ function HomeContent() {
     setTimeout(() => moveRight(p1, p2, p3), 750);
   }
   function moveLeft(p1, p2, p3) {
-    p1.style.transform = "translatex(-10%) scale(1)";
-    p2.style.transform = "translatex(40%) scale(.8)";
+    // p1.style.transform = "translatex(-10%) scale(1)";
+    // p2.style.transform = "translatex(40%) scale(.8)";
+    p1.style.scale = "0.9";
+    p1.style.left = "-50px";
+    p2.style.scale = "1.1";
+    p2.style.left = "-50px";
   }
   function moveRight(p1, p2, p3) {
-    p1.style.transform = "translatex(0%) scale(1)";
-    p2.style.transform = "translatex(50%) scale(.6)";
+    // p1.style.transform = "translatex(0%) scale(1)";
+    // p2.style.transform = "translatex(50%) scale(.6)";
+    p1.style.scale = "1";
+    p1.style.left = "0px";
+    p2.style.scale = "1";
+    p2.style.left = "0px";
   }
   function clear(myInterval) {
-    console.log(myInterval);
     clearInterval(myInterval);
+    console.log("Clear Interval");
   }
 
   function changeOrder(e) {
+    console.log("Change Order");
     let index = Number(e.currentTarget.getAttribute("data-id"));
     generateCarouselIndicator(index);
     let pos = Object.keys(positionObj).find(key => positionObj[key] === Number(index));
