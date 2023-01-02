@@ -26,5 +26,12 @@
       "image" : "quote-generator-demo.png",
       "description" : "<a href='https://jkagawa.github.io/quote-generator/' target='_blank' class='link-style'>Link to the project</a><br/><br/>Built using vanilla JavaScript<br/><br/>Languages include JavaScript and HTML/CSS",
       "color" : "#064DC9"
+    },
+    {
+      "name" : "project5",
+      "title" : "Pong",
+      "image" : "pong-demo.png",
+      "description" : "<a href='https://jkagawa.github.io/pong/' target='_blank' class='link-style'>Link to the project</a><br/><br/>Built using vanilla JavaScript<br/><br/>Languages include JavaScript and HTML/CSS",
+      "color" : "#272727"
     }
 ]
